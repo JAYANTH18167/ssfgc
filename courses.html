@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>College Courses</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounceHover {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .hover-bounce:hover {
+      animation: bounceHover 0.4s ease-in-out;
+    }
+
+    .nav-link {
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #93c5fd;
+      transform: translateY(-2px);
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s ease-out;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .glow-on-hover:hover {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+    }
+
+    .nav-btn {
+      @apply px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg hover:scale-105;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-blue-900 text-white p-6 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center animate-on-scroll">
+      <h1 class="text-2xl font-bold">Sri Siddhartha First Grade College</h1>
+      <nav class="space-x-4">
+        <a href="file:///C:/Users/G_C_Jayanth/OneDrive/Desktop/ssfgc%20web/clg2.html#" class="nav-link">Home</a>
+        <a href="file:///C:/Users/G_C_Jayanth/OneDrive/Desktop/ssfgc%20web/courses.html" class="nav-link">Courses</a>
+        <a href="file:///C:/Users/G_C_Jayanth/OneDrive/Desktop/ssfgc%20web/contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Courses Section -->
+  <main class="max-w-7xl mx-auto p-6 animate-on-scroll">
+    <h2 class="text-3xl font-bold mb-6 text-center fade-in-up">Our Courses</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Course Cards -->
+      <div class="bg-white p-6 rounded-xl shadow-md transition transform hover:scale-105 hover-bounce glow-on-hover animate-on-scroll">
+        <h3 class="text-xl font-semibold mb-2">BCA - Bachelor of Computer Applications</h3>
+        <p>Focuses on programming, data structures, and software development with hands-on experience.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md transition transform hover:scale-105 hover-bounce glow-on-hover animate-on-scroll">
+        <h3 class="text-xl font-semibold mb-2">B.Com - Bachelor of Commerce</h3>
+        <p>Focuses on providing a strong foundation in business and commerce principles.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md transition transform hover:scale-105 hover-bounce glow-on-hover animate-on-scroll">
+        <h3 class="text-xl font-semibold mb-2">BA - Bachelor of Arts</h3>
+        <p>Offers majors in English, History, Economics, and Political Science with a holistic approach.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md transition transform hover:scale-105 hover-bounce glow-on-hover animate-on-scroll">
+        <h3 class="text-xl font-semibold mb-2">B.Sc - Bachelor of Science</h3>
+        <p>Specializations in Physics, Chemistry, Mathematics, and Computer Science with lab support.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md transition transform hover:scale-105 hover-bounce glow-on-hover animate-on-scroll">
+        <h3 class="text-xl font-semibold mb-2">M.Com - Masters of Commerce</h3>
+        <p>Focuses on providing advanced knowledge and skills in various aspects of commerce and finance.</p>
+      </div>
+
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-center gap-6 mt-10 animate-on-scroll">
+     <button onclick="window.history.back()">Back</button>
+   <button><a href="file:///C:/Users/G_C_Jayanth/OneDrive/Desktop/ssfgc%20web/clg2.html#">Home</a></button>
+      <button onclick="location.href='bsc.html'">Next</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white text-center py-4 mt-10 animate-on-scroll">
+    <p>&copy; 2025 Sri Siddhartha First Grade College. All rights reserved.</p>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el, index) => {
+      el.style.animationDelay = `${index * 0.15}s`;
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
